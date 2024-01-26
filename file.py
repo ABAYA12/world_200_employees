@@ -19,6 +19,7 @@ file_df['avg_dept_salary'] = file_df.groupby(
 # 2 department salary percent
 file_df['dept_salary_percentage'] = ((file_df.groupby('department')[
                                      'salary(usd)'].transform('sum') / file_df['salary(usd)'].sum()) * 100).round(2)
+
 # save changes to employees.csv
 file_df.to_csv('employees.csv', index=False)
 
@@ -31,3 +32,6 @@ plt.title('World Departments Average Salary Distribution')
 plt.xlabel('Department')
 plt.ylabel('Average Salary')
 plt.show()
+
+print('Loading...........................................Done!')
+print(len(file_df))
